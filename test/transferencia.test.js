@@ -13,8 +13,8 @@ describe('Transferencias', () => {
         })
         it ('Deve retornar sucesso com 201 quando o valor da transferencia for igual ou acima de R$10,00', async () => {
                                   
-                const resposta = await request(process.env.Base_URL)
-                .post(' /transferencias')
+                const resposta = await request(process.env.BASE_URL)
+                .post('/transferencias')
                 .set('Content-Type', 'application/json')
                 .set('Authorization', `Bearer ${token}`)
                 .send({
@@ -24,15 +24,15 @@ describe('Transferencias', () => {
                     token: ""
                   })
 
-                  expect(resposta.status).to.equal(200);
+                  expect(resposta.status).to.equal(201);
 
 
         })
 
         it ('Deve retornar falha com 422 quando o valor da transferencia for abaixo de R$10,00', async () => {
                         
-            const resposta = await request(process.env.Base_URL)
-                .post(' /transferencias')
+            const resposta = await request(process.env.BASE_URL)
+                .post('/transferencias')
                 .set('Content-Type', 'application/json')
                 .set('Authorization', `Bearer ${token}`)
                 .send({
